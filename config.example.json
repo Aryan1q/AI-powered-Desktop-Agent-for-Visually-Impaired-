@@ -1,0 +1,111 @@
+{
+  "llm": {
+    "provider": "ollama",
+    "model": "",
+    "temperature": 0.0,
+    "max_tokens": 2000,
+    "timeout": 120.0,
+    "max_retries": 4,
+    "base_url": "",
+    "fallbacks": [],
+    "redact_screenshots": false,
+    "offline": true
+  },
+
+  "safety": {
+    "allowlist": ["Notepad", "Calculator"],
+    "denylist": ["Windows Security", "Credential Manager"],
+    "allowlist_is_regex": true,
+    "dry_run": false,
+    "confirm_all": false,
+    "confirm_risk_at_or_above": 2,
+    "block_at_or_above": 4,
+    "allow_sensitive_fields": false,
+    "redact_secrets_in_logs": true,
+    "emergency_hotkey": "ctrl+alt+q",
+    "panic_phrases": ["stop", "cancel", "abort", "halt", "kill", "emergency stop"],
+    "max_actions_per_run": 200,
+    "max_wall_seconds_per_run": 3600,
+    "max_llm_calls_per_run": 200,
+    "max_cost_usd_per_run": 1.0,
+    "loop_detection_threshold": 4,
+    "idle_backoff_seconds": 5.0
+  },
+
+  "vision": {
+    "max_controls": 150,
+    "screenshot_quality": 70,
+    "screenshot_format": "png",
+    "max_image_edge": 1560,
+    "annotate": true,
+    "annotate_color": "red",
+    "diff_detection": true,
+    "ocr_enabled": true,
+    "ocr_fallback": true,
+    "screenshot_on_every_step": true,
+    "retain_screenshots": true,
+    "redact_screenshots": false,
+    "include_control_types": [
+      "Button", "Edit", "Document", "MenuItem", "TabItem", "ListItem",
+      "CheckBox", "RadioButton", "ComboBox", "Hyperlink", "TreeItem",
+      "SplitButton", "Slider", "Spinner", "DataItem", "Text"
+    ]
+  },
+
+  "voice": {
+    "enabled": false,
+    "tts": true,
+    "stt": false,
+    "stt_command": "",
+    "wake_word": "",
+    "rate": 175,
+    "volume": 1.0,
+    "narrate_actions": true,
+    "narrate_thoughts": false,
+    "confirmation_style": "voice_and_console"
+  },
+
+  "automation": {
+    "step_delay": 0.8,
+    "observation_timeout": 20.0,
+    "action_timeout": 30.0,
+    "window_timeout": 30.0,
+    "max_steps": 30,
+    "max_consecutive_errors": 5,
+    "retry_on_observation_error": true,
+    "auto_launch_apps": true,
+    "auto_focus_window": true,
+    "close_window_on_finish": false,
+    "planner_enabled": true,
+    "verifier_enabled": true,
+    "self_heal_enabled": true,
+    "persist_memory": true,
+    "remember_failures": true
+  },
+
+  "storage": {
+    "keep_runs": 50,
+    "keep_screenshots": 400,
+    "log_level": "INFO",
+    "json_logs": false,
+    "redact_logs": true
+  },
+
+  "server": {
+    "enabled": false,
+    "host": "127.0.0.1",
+    "port": 8765,
+    "token": "",
+    "dashboard": true,
+    "cors_origin": "",
+    "max_body_bytes": 2000000
+  },
+
+  "schedule": {
+    "enabled": false,
+    "jitter_seconds": 5,
+    "run_on_start": false,
+    "catch_up_missed": false,
+    "max_concurrent": 1
+  }
+}

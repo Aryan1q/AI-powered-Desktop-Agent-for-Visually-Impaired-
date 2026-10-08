@@ -1,0 +1,32 @@
+# API keys. There is no .env file in this repo and none is needed: Ollama has
+# no key. These rules stay so that a key file created later is never committed.
+.env
+.env.*
+!.env.example
+
+# Local state (also written to ~/.ufo by default).
+*.db
+*.sqlite
+state/
+
+# Run artifacts: screenshots, prompts, traces. These can contain whatever was
+# on your screen.
+logs/
+runs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.envrc
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store

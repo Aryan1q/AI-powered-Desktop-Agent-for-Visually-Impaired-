@@ -1,0 +1,44 @@
+# --- core ------------------------------------------------------------------
+pywinauto>=0.6.8          # UI Automation: windows and controls
+comtypes>=1.2             # required by pywinauto on some Windows builds
+pywin32>=306              # win32api / win32gui / win32clipboard / win32process
+pillow>=10.0              # screenshots, annotation, image diffing
+psutil>=5.9               # process list, CPU/memory, battery, uptime
+
+# --- model provider ---------------------------------------------------------
+# Local only. UFO talks to an Ollama server on this machine (or any
+# OpenAI-compatible endpoint you point it at) and needs no SDK to do that: the
+# HTTP calls are made with the standard library.
+#
+#   ollama serve
+#   ollama pull llama3.2-vision
+#
+# `llm.offline` defaults to true, so a cloud provider is refused outright. If
+# you deliberately want one, install its SDK and set llm.offline=false.
+# anthropic>=0.40
+# openai>=1.40
+
+# --- optional: voice -------------------------------------------------------
+pyttsx3>=2.90            # text to speech (local Windows voices)
+faster-whisper>=1.2      # offline speech to text on the laptop (no torch)
+SpeechRecognition>=3.10   # speech to text; only local recognition is used
+# openai-whisper>=20231117  # alternative offline STT, but pulls in ~1 GB of torch
+
+# Note on faster-whisper: this is what `phone.transcription = "local"` uses, and
+# it is the default — it keeps voice instructions off any third-party
+# recogniser. The current faster-whisper and PyAV releases disagree on the
+# container API, so UFO decodes the WAV itself and never calls into PyAV.
+
+# --- optional: OCR ---------------------------------------------------------
+# The agent works without OCR — it falls back to the annotated screenshot.
+# Install ONE of these to read text from canvas-drawn UIs (terminals, games,
+# PDFs, video players, Electron apps).
+# pytesseract>=0.3.10        # + install the Tesseract binary and 'eng' data
+# easyocr>=1.7               # offline, but pulls in ~1 GB of torch
+# rapidocr-onnxruntime>=1.3  # offline, small, fast
+
+# --- optional: system niceties --------------------------------------------
+# WMI>=1.5.1               # display brightness
+# psutil>=5.9              # (already above) volume via pycaw
+# pycaw>=20240210          # exact master-volume control
+# PyYAML>=6.0              # only if you prefer a .yaml config file
